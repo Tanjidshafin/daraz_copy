@@ -1,0 +1,473 @@
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+  <script src="https://unpkg.com/unlazy@0.11.3/dist/unlazy.with-hashing.iife.js" defer init></script>
+  <script type="text/javascript">
+    window.tailwind.config = {
+      darkMode: ['class'],
+      theme: {
+        extend: {
+          colors: {
+            border: 'hsl(var(--border))',
+            input: 'hsl(var(--input))',
+            ring: 'hsl(var(--ring))',
+            background: 'hsl(var(--background))',
+            foreground: 'hsl(var(--foreground))',
+            primary: {
+              DEFAULT: 'hsl(var(--primary))',
+              foreground: 'hsl(var(--primary-foreground))'
+            },
+            secondary: {
+              DEFAULT: 'hsl(var(--secondary))',
+              foreground: 'hsl(var(--secondary-foreground))'
+            },
+            destructive: {
+              DEFAULT: 'hsl(var(--destructive))',
+              foreground: 'hsl(var(--destructive-foreground))'
+            },
+            muted: {
+              DEFAULT: 'hsl(var(--muted))',
+              foreground: 'hsl(var(--muted-foreground))'
+            },
+            accent: {
+              DEFAULT: 'hsl(var(--accent))',
+              foreground: 'hsl(var(--accent-foreground))'
+            },
+            popover: {
+              DEFAULT: 'hsl(var(--popover))',
+              foreground: 'hsl(var(--popover-foreground))'
+            },
+            card: {
+              DEFAULT: 'hsl(var(--card))',
+              foreground: 'hsl(var(--card-foreground))'
+            },
+          },
+        }
+      }
+    }
+  </script>
+  <style type="text/tailwindcss">
+    @layer base {
+				:root {
+					--background: 0 0% 100%;
+--foreground: 240 10% 3.9%;
+--card: 0 0% 100%;
+--card-foreground: 240 10% 3.9%;
+--popover: 0 0% 100%;
+--popover-foreground: 240 10% 3.9%;
+--primary: 240 5.9% 10%;
+--primary-foreground: 0 0% 98%;
+--secondary: 240 4.8% 95.9%;
+--secondary-foreground: 240 5.9% 10%;
+--muted: 240 4.8% 95.9%;
+--muted-foreground: 240 3.8% 46.1%;
+--accent: 240 4.8% 95.9%;
+--accent-foreground: 240 5.9% 10%;
+--destructive: 0 84.2% 60.2%;
+--destructive-foreground: 0 0% 98%;
+--border: 240 5.9% 90%;
+--input: 240 5.9% 90%;
+--ring: 240 5.9% 10%;
+--radius: 0.5rem;
+				}
+				.dark {
+					--background: 240 10% 3.9%;
+--foreground: 0 0% 98%;
+--card: 240 10% 3.9%;
+--card-foreground: 0 0% 98%;
+--popover: 240 10% 3.9%;
+--popover-foreground: 0 0% 98%;
+--primary: 0 0% 98%;
+--primary-foreground: 240 5.9% 10%;
+--secondary: 240 3.7% 15.9%;
+--secondary-foreground: 0 0% 98%;
+--muted: 240 3.7% 15.9%;
+--muted-foreground: 240 5% 64.9%;
+--accent: 240 3.7% 15.9%;
+--accent-foreground: 0 0% 98%;
+--destructive: 0 62.8% 30.6%;
+--destructive-foreground: 0 0% 98%;
+--border: 240 3.7% 15.9%;
+--input: 240 3.7% 15.9%;
+--ring: 240 4.9% 83.9%;
+				}
+			}
+		</style>
+</head>
+
+<body>
+  <div class="bg-[var(--background)] text-[var(--foreground)]">
+
+    <div class="bg-orange-500 p-4 md:p-6 lg:p-8 fixed top-0 left-0 w-full z-50" id="navbar">
+      <div class="container mx-auto flex justify-between items-center">
+        <div class="flex items-center space-x-4 md:space-x-6 lg:space-x-8">
+          <img src="https://placehold.co/100x40?text=Daraz" alt="Daraz Logo" class="h-10 md:h-12 lg:h-14">
+
+        </div>
+        <div class="flex-grow mx-4 md:mx-6 lg:mx-8">
+          <input type="text" placeholder="Search in Daraz"
+            class="w-full px-4 py-2 rounded-lg border border-zinc-300 md:px-6 md:py-3 lg:px-8 lg:py-4">
+        </div>
+        <div class="flex items-center hidden lg:flex space-x-4 md:space-x-6 lg:space-x-8">
+          <button class="text-white">Login</button>
+          <button class="text-white">Sign Up</button>
+          <button class="text-white">EN</button>
+          <button class="text-white">Cart</button>
+        </div>
+        <div class="lg:hidden">
+          <button class="bg-orange-500 text-white p-2 rounded-lg" id="dropdown-toggle">Menu</button>
+          <div class="absolute right-0 mt-2 w-48 bg-white shadow-lg rounded-lg hidden" id="dropdown">
+            <ul class="flex flex-col py-2">
+              <li><a href="#" class="block py-2 px-4 text-gray-700 hover:text-gray-900">Login</a></li>
+              <li><a href="#" class="block py-2 px-4 text-gray-700 hover:text-gray-900">Sign Up</a></li>
+              <li><a href="#" class="block py-2 px-4 text-gray-700 hover:text-gray-900">EN</a></li>
+              <li><a href="#" class="block py-2 px-4 text-gray-700 hover:text-gray-900">Cart</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="bg-orange-400 p-8 text-center mt-16 lg:mt-28">
+      <h2 class="text-2xl font-bold text-white">26th Payday Sale</h2>
+      <p class="text-white">Your monthly destination for the Best Price</p>
+      <div class="flex justify-center space-x-4 mt-4">
+        <div class="bg-white text-black px-4 py-2 rounded-lg">Free Delivery</div>
+        <div class="bg-white text-black px-4 py-2 rounded-lg">Up to 70% Off</div>
+      </div>
+    </div>
+    <div class="container mx-auto">
+      <section class="mx-14 lg:mx-20 mt-20 ">
+        <div class="container my-8">
+          <h3 class="text-xl font-bold text-center mb-4">Collect Voucher & Enjoy Discount on Payday</h3>
+          <div class="flex space-x-4 overflow-x-auto">
+
+            <div class="bg-white border border-zinc-300 rounded-lg p-4 flex-shrink-0 w-64">
+              <div class="flex justify-between items-center mb-2">
+                <span class="bg-red-500 text-white px-2 py-1 rounded">Limited Usage</span>
+                <span class="text-zinc-500">T&C</span>
+              </div>
+              <div class="text-center mb-2">
+                <h4 class="text-lg font-bold">6% Off</h4>
+                <p>Min. Spend ₹3999<br>Capped at ₹2000</p>
+              </div>
+              <p class="text-center text-zinc-500 mb-4">Daraz Voucher</p>
+              <p class="text-center text-zinc-500 mb-4">Valid Till 01 Jul 2024</p>
+              <button class="bg-orange-500 text-white px-4 py-2 rounded-lg w-full">Collect</button>
+            </div>
+            <div class="bg-white border border-zinc-300 rounded-lg p-4 flex-shrink-0 w-64">
+              <div class="flex justify-between items-center mb-2">
+                <span class="bg-red-500 text-white px-2 py-1 rounded">Limited Usage</span>
+                <span class="text-zinc-500">T&C</span>
+              </div>
+              <div class="text-center mb-2">
+                <h4 class="text-lg font-bold">6% Off</h4>
+                <p>Min. Spend ₹3999<br>Capped at ₹2000</p>
+              </div>
+              <p class="text-center text-zinc-500 mb-4">Daraz Voucher</p>
+              <p class="text-center text-zinc-500 mb-4">Valid Till 01 Jul 2024</p>
+              <button class="bg-orange-500 text-white px-4 py-2 rounded-lg w-full">Collect</button>
+            </div>
+            <div class="bg-white border border-zinc-300 rounded-lg p-4 flex-shrink-0 w-64">
+              <div class="flex justify-between items-center mb-2">
+                <span class="bg-red-500 text-white px-2 py-1 rounded">Limited Usage</span>
+                <span class="text-zinc-500">T&C</span>
+              </div>
+              <div class="text-center mb-2">
+                <h4 class="text-lg font-bold">6% Off</h4>
+                <p>Min. Spend ₹3999<br>Capped at ₹2000</p>
+              </div>
+              <p class="text-center text-zinc-500 mb-4">Daraz Voucher</p>
+              <p class="text-center text-zinc-500 mb-4">Valid Till 01 Jul 2024</p>
+              <button class="bg-orange-500 text-white px-4 py-2 rounded-lg w-full">Collect</button>
+            </div>
+            <div class="bg-white border border-zinc-300 rounded-lg p-4 flex-shrink-0 w-64">
+              <div class="flex justify-between items-center mb-2">
+                <span class="bg-red-500 text-white px-2 py-1 rounded">Limited Usage</span>
+                <span class="text-zinc-500">T&C</span>
+              </div>
+              <div class="text-center mb-2">
+                <h4 class="text-lg font-bold">6% Off</h4>
+                <p>Min. Spend ₹3999<br>Capped at ₹2000</p>
+              </div>
+              <p class="text-center text-zinc-500 mb-4">Daraz Voucher</p>
+              <p class="text-center text-zinc-500 mb-4">Valid Till 01 Jul 2024</p>
+              <button class="bg-orange-500 text-white px-4 py-2 rounded-lg w-full">Collect</button>
+            </div>
+            <div class="bg-white border border-zinc-300 rounded-lg p-4 flex-shrink-0 w-64">
+              <div class="flex justify-between items-center mb-2">
+                <span class="bg-red-500 text-white px-2 py-1 rounded">Limited Usage</span>
+                <span class="text-zinc-500">T&C</span>
+              </div>
+              <div class="text-center mb-2">
+                <h4 class="text-lg font-bold">6% Off</h4>
+                <p>Min. Spend ₹3999<br>Capped at ₹2000</p>
+              </div>
+              <p class="text-center text-zinc-500 mb-4">Daraz Voucher</p>
+              <p class="text-center text-zinc-500 mb-4">Valid Till 01 Jul 2024</p>
+              <button class="bg-orange-500 text-white px-4 py-2 rounded-lg w-full">Collect</button>
+            </div>
+            <div class="bg-white border border-zinc-300 rounded-lg p-4 flex-shrink-0 w-64">
+              <div class="flex justify-between items-center mb-2">
+                <span class="bg-red-500 text-white px-2 py-1 rounded">Limited Usage</span>
+                <span class="text-zinc-500">T&C</span>
+              </div>
+              <div class="text-center mb-2">
+                <h4 class="text-lg font-bold">6% Off</h4>
+                <p>Min. Spend ₹3999<br>Capped at ₹2000</p>
+              </div>
+              <p class="text-center text-zinc-500 mb-4">Daraz Voucher</p>
+              <p class="text-center text-zinc-500 mb-4">Valid Till 01 Jul 2024</p>
+              <button class="bg-orange-500 text-white px-4 py-2 rounded-lg w-full">Collect</button>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="bg-white py-8">
+          <div class="container mx-auto flex flex-wrap lg:justify-around">
+            <div class="w-full md:w-1/2 lg:w-1/5 text-center mb-4 md:mb-0">
+              <img src="https://placehold.co/50" alt="All" class="mx-auto mb-2">
+              <p class="text-sm">All</p>
+            </div>
+            <div class="w-full md:w-1/2 lg:w-1/5 text-center mb-4 md:mb-0">
+              <img src="https://placehold.co/50" alt="Fashion" class="mx-auto mb-2">
+              <p>Fashion</p>
+            </div>
+            <div class="w-full md:w-1/2 lg:w-1/5 text-center mb-4 md:mb-0">
+              <img src="https://placehold.co/50" alt="Beauty & Essentials" class="mx-auto mb-2">
+              <p>Beauty & Essentials</p>
+            </div>
+            <div class="w-full md:w-1/2 lg:w-1/5 text-center mb-4 md:mb-0">
+              <img src="https://placehold.co/50" alt="Electronics" class="mx-auto mb-2">
+              <p>Electronics</p>
+            </div>
+            <div class="w-full md:w-1/2 lg:w-1/5 text-center mb-4 md:mb-0">
+              <img src="https://placehold.co/50" alt="Lifestyle" class="mx-auto mb-2">
+              <p>Lifestyle</p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="mx-20">
+        <div class="bg-white p-4">
+          <div
+            class="flex items-center justify-between bg-primary text-primary-foreground p-4 rounded-lg mb-4 cursor-pointer">
+            <span class="text-lg font-bold">Free Delivery</span>
+            <img aria-hidden="true" alt="delivery-truck" src="https://openui.fly.dev/openui/24x24.svg?text=🚚" />
+          </div>
+          <div
+            class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 flex space-x-4 overflow-x-auto">
+            <div class="border border-muted p-2 rounded-lg text-center">
+              <span class="block text-red-500 text-sm mb-2">-51%</span>
+              <img src="https://placehold.co/100x100" alt="Fevicryl Mouldit Art Clay 50gsm - White clay"
+                class="mx-auto mb-2" />
+              <p class="text-sm mb-2">Fevicryl Mouldit Art Clay 50gsm - White clay</p>
+              <p class="text-red-500 line-through mb-2">₹44</p>
+              <button class="bg-secondary text-secondary-foreground hover:bg-secondary/80 py-1 px-3 rounded">Shop
+                Now</button>
+            </div>
+            <div class="border border-muted p-2 rounded-lg text-center">
+              <span class="block text-red-500 text-sm mb-2">-51%</span>
+              <img src="https://placehold.co/100x100" alt="Fevicryl Mouldit Art Clay 50gsm - White clay"
+                class="mx-auto mb-2" />
+              <p class="text-sm mb-2">Fevicryl Mouldit Art Clay 50gsm - White clay</p>
+              <p class="text-red-500 line-through mb-2">₹44</p>
+              <button class="bg-secondary text-secondary-foreground hover:bg-secondary/80 py-1 px-3 rounded">Shop
+                Now</button>
+            </div>
+            <div class="border border-muted p-2 rounded-lg text-center">
+              <span class="block text-red-500 text-sm mb-2">-51%</span>
+              <img src="https://placehold.co/100x100" alt="Fevicryl Mouldit Art Clay 50gsm - White clay"
+                class="mx-auto mb-2" />
+              <p class="text-sm mb-2">Fevicryl Mouldit Art Clay 50gsm - White clay</p>
+              <p class="text-red-500 line-through mb-2">₹44</p>
+              <button class="bg-secondary text-secondary-foreground hover:bg-secondary/80 py-1 px-3 rounded">Shop
+                Now</button>
+            </div>
+            <div class="border border-muted p-2 rounded-lg text-center">
+              <span class="block text-red-500 text-sm mb-2">-26%</span>
+              <img src="https://placehold.co/100x100" alt="Dry Rosemary Leaves (Rosmary Leaf) - 50 gm"
+                class="mx-auto mb-2" />
+              <p class="text-sm mb-2">Dry Rosemary Leaves (Rosmary Leaf) - 50 gm</p>
+              <p class="text-red-500 line-through mb-2">₹187</p>
+              <button class="bg-secondary text-secondary-foreground hover:bg-secondary/80 py-1 px-3 rounded">Shop
+                Now</button>
+            </div>
+            <div class="border border-muted p-2 rounded-lg text-center">
+              <span class="block text-red-500 text-sm mb-2">-2%</span>
+              <img src="https://placehold.co/100x100" alt="Fiama Gel Bar Blackcurrant And ..." class="mx-auto mb-2" />
+              <p class="text-sm mb-2">Fiama Gel Bar Blackcurrant And ...</p>
+              <p class="text-red-500 line-through mb-2">₹175</p>
+              <button class="bg-secondary text-secondary-foreground hover:bg-secondary/80 py-1 px-3 rounded">Shop
+                Now</button>
+            </div>
+            <div class="border border-muted p-2 rounded-lg text-center">
+              <span class="block text-red-500 text-sm mb-2">-7%</span>
+              <img src="https://placehold.co/100x100" alt="BMTF Tasty Saline Orange Flavor 20 Packet Box"
+                class="mx-auto mb-2" />
+              <p class="text-sm mb-2">BMTF Tasty Saline Orange Flavor 20 Packet Box</p>
+              <p class="text-red-500 line-through mb-2">₹130</p>
+              <button class="bg-secondary text-secondary-foreground hover:bg-secondary/80 py-1 px-3 rounded">Shop
+                Now</button>
+            </div>
+            <div class="border border-muted p-2 rounded-lg text-center">
+              <span class="block text-red-500 text-sm mb-2">-15%</span>
+              <img src="https://placehold.co/100x100" alt="Avent Natural Teatphilips 3Month+ 2 ..."
+                class="mx-auto mb-2" />
+              <p class="text-sm mb-2">Avent Natural Teatphilips 3Month+ 2 ...</p>
+              <p class="text-red-500 line-through mb-2">₹580</p>
+              <button class="bg-secondary text-secondary-foreground hover:bg-secondary/80 py-1 px-3 rounded">Shop
+                Now</button>
+            </div>
+            <div class="border border-muted p-2 rounded-lg text-center">
+              <span class="block text-red-500 text-sm mb-2">-34%</span>
+              <img src="https://placehold.co/100x100" alt="Stretched White Blank Canvas Set, Artist ..."
+                class="mx-auto mb-2" />
+              <p class="text-sm mb-2">Stretched White Blank Canvas Set, Artist ...</p>
+              <p class="text-red-500 line-through mb-2">₹190</p>
+              <button class="bg-secondary text-secondary-foreground hover:bg-secondary/80 py-1 px-3 rounded">Shop
+                Now</button>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="mx-20 mt-20">
+        <div class="bg-secondary text-secondary-foreground">
+          <div class="flex items-center justify-evenly mb-4 cursor-pointer bg-orange-500 text-white text-center py-4 ">
+            <h2 class="text-2xl font-semibold text-white rounded-lg">Deals of the Day</h2>
+
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+            <div class="bg-card text-card-foreground p-4 rounded-lg border border-border">
+              <div class="flex justify-between items-center mb-2">
+                <span class="text-muted-foreground text-sm">19073 Sold</span>
+                <span class="bg-destructive text-destructive-foreground text-sm px-2 rounded">-49%</span>
+              </div>
+              <img src="https://placehold.co/150x150" alt="kirkland minoxidil 5% new and improved" class="mb-2" />
+              <p class="text-sm mb-2">kirkland minoxidil 5% new and improved...</p>
+              <p class="text-xl font-bold mb-2">৳889</p>
+              <button class="bg-primary text-primary-foreground p-2 rounded-lg w-full">Shop now</button>
+            </div>
+
+            <div class="bg-card text-card-foreground p-4 rounded-lg border border-border">
+              <div class="flex justify-between items-center mb-2">
+                <span class="text-muted-foreground text-sm">569 Sold</span>
+                <span class="bg-destructive text-destructive-foreground text-sm px-2 rounded">-49%</span>
+              </div>
+              <div>
+                <img src="https://placehold.co/150x150" alt="12v dc থেকে 220v ac কনভার্টার ইনভার্টার 100 ..."
+                  class="mb-2" />
+              </div>
+              <p class="text-sm mb-2">12v dc থেকে 220v ac কনভার্টার ইনভার্টার 100 ...</p>
+              <p class="text-xl font-bold mb-2">৳575</p>
+              <button class="bg-primary text-primary-foreground p-2 rounded-lg w-full">Shop now</button>
+            </div>
+
+            <div class="bg-card text-card-foreground p-4 rounded-lg border border-border">
+              <div class="flex justify-between items-center mb-2">
+                <span class="text-muted-foreground text-sm">640 Sold</span>
+                <span class="bg-destructive text-destructive-foreground text-sm px-2 rounded">-42%</span>
+              </div>
+              <img src="https://placehold.co/150x150" alt="Imou 64GB Micro SD Memory Card MMC ..." class="mb-2" />
+              <p class="text-sm mb-2">Imou 64GB Micro SD Memory Card MMC ...</p>
+              <p class="text-xl font-bold mb-2">৳549</p>
+              <button class="bg-primary text-primary-foreground p-2 rounded-lg w-full">Shop now</button>
+            </div>
+
+            <div class="bg-card text-card-foreground p-4 rounded-lg border border-border">
+              <div class="flex justify-between items-center mb-2">
+                <span class="text-muted-foreground text-sm">1235 Sold</span>
+                <span class="bg-destructive text-destructive-foreground text-sm px-2 rounded">-10%</span>
+              </div>
+              <img src="https://placehold.co/150x150" alt="Karkuma Organic Honey 400g" class="mb-2" />
+              <p class="text-sm mb-2">Karkuma Organic Honey 400g</p>
+              <p class="text-xl font-bold mb-2">৳675</p>
+              <button class="bg-primary text-primary-foreground p-2 rounded-lg w-full">Shop now</button>
+            </div>
+
+            <div class="bg-card text-card-foreground p-4 rounded-lg border border-border">
+              <div class="flex justify-between items-center mb-2">
+                <span class="text-muted-foreground text-sm">815 Sold</span>
+                <span class="bg-destructive text-destructive-foreground text-sm px-2 rounded">-25%</span>
+              </div>
+              <img src="https://placehold.co/150x150" alt="Double Head Infrared Heating Massager" class="mb-2" />
+              <p class="text-sm mb-2">Double Head Infrared Heating Massager</p>
+              <p class="text-xl font-bold mb-2">৳1,879</p>
+              <button class="bg-primary text-primary-foreground p-2 rounded-lg w-full">Shop now</button>
+            </div>
+
+            <div class="bg-card text-card-foreground p-4 rounded-lg border border-border">
+              <div class="flex justify-between items-center mb-2">
+                <span class="text-muted-foreground text-sm">422 Sold</span>
+                <span class="bg-destructive text-destructive-foreground text-sm px-2 rounded">-20%</span>
+              </div>
+              <img src="https://placehold.co/150x150" alt="Naturals by Rakhi Natural Hair Oil 200ml" class="mb-2" />
+              <p class="text-sm mb-2">Naturals by Rakhi Natural Hair Oil 200ml</p>
+              <p class="text-xl font-bold mb-2">৳589</p>
+              <button class="bg-primary text-primary-foreground p-2 rounded-lg w-full">Shop now</button>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="mx-20 mt-20">
+        <div class="bg-orange-500 text-white text-center py-4">
+          <h2 class="text-xl font-bold">Shop By Price</h2>
+        </div>
+        <div class="flex flex-wrap lg:justify-center gap-4 p-4">
+          <div class="bg-cyan-100 text-center p-4 rounded-lg shadow-lg w-full md:w-1/2 lg:w-1/4 mb-4 md:mb-0">
+            <p class="text-orange-500 font-bold">UNDER</p>
+            <p class="text-orange-500 text-2xl font-bold">TK 199</p>
+            <button class="bg-orange-500 text-white py-2 px-4 rounded-full mt-4">Shop Now</button>
+          </div>
+          <div class="bg-cyan-100 text-center p-4 rounded-lg shadow-lg w-full md:w-1/2 lg:w-1/4 mb-4 md:mb-0">
+            <p class="text-orange-500 font-bold">UNDER</p>
+            <p class="text-orange-500 text-2xl font-bold">TK 499</p>
+            <button class="bg-orange-500 text-white py-2 px-4 rounded-full mt-4">Shop Now</button>
+          </div>
+          <div class="bg-cyan-100 text-center p-4 rounded-lg shadow-lg w-full md:w-1/2 lg:w-1/4 mb-4 md:mb-0">
+            <p class="text-orange-500 font-bold">UNDER</p>
+            <p class="text-orange-500 text-2xl font-bold">TK 999</p>
+            <button class="bg-orange-500 text-white py-2 px-4 rounded-full mt-4">Shop Now</button>
+          </div>
+          <div class="bg-cyan-100 text-center p-4 rounded-lg shadow-lg w-full md:w-1/2 lg:w-1/4 mb-4 md:mb-0">
+            <p class="text-orange-500 font-bold">UNDER</p>
+            <p class="text-orange-500 text-2xl font-bold">TK 1,499</p>
+            <button class="bg-orange-500 text-white py-2 px-4 rounded-full mt-4">Shop Now</button>
+          </div>
+        </div>
+      </section>
+    </div>
+
+  </div>
+  <script>
+    let navbar = document.getElementById('navbar');
+    let navbarHeight = navbar.offsetHeight;
+    let lastScrollTop = 0;
+
+    window.addEventListener('scroll', () => {
+      let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      if (scrollTop > lastScrollTop) {
+        navbar.classList.remove('hidden');
+      } else {
+        navbar.classList.remove('hidden');
+      }
+      lastScrollTop = scrollTop;
+    });
+
+    // navbar scroll js
+
+    const dropdownToggle = document.getElementById('dropdown-toggle');
+    const dropdown = document.getElementById('dropdown');
+
+    dropdownToggle.addEventListener('click', () => {
+      dropdown.classList.toggle('hidden');
+    });
+
+    // responsive navbar js
+  </script>
+</body>
+
+</html>
